@@ -3,6 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 //Modulos
 import { AppRoutingModule } from './app-routing.module';
+//
+import { environment } from '../environments/invironment';
+//
+import { ReactiveFormsModule } from '@angular/forms';
+
+//AngularFire
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -28,7 +37,15 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
     NavbarComponent,
     SidebarComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
